@@ -1,8 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:lat6/halaman_produk.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const LoginApp());
+}
+
+class LoginApp extends StatelessWidget {
+  const LoginApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Login App',
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,// menyesuaikan kerapatan elemen UI sesuai platform
+      ),
+      home: const LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+ final TextEditingController usernameController = TextEditingController();
+ final TextEditingController passwordController =TextEditingController();
+  
+  void login (){
+    String Username = usernameController.text;
+    String Passowrd = passwordController.text;
+    
+    // logika untuk login  sederhana
+
+    if( Username == "Juna" && Passowrd == "Juna22"){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyApp()),
+        );
+    } else {
+      // pesan error username atau password tidak sesuai
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("PASSWORD ATAU USERNAME SALAH DIMASUKKKAN"))
+        );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(21.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                controller: usernameController,
+                decoration: const InputDecoration(
+                  hintText: 'Username'
+                ),
+              ),
+              const SizedBox(height: 20),
+              TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  hintText: 'Password'
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: login, 
+                child: const Text('Login')
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +98,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Menu Navigasi',
+      title: 'Login App',
       theme: ThemeData(
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.grey[100],
@@ -22,12 +108,13 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 2,
         ),
-      ),
+      ),  
       home: const HomePage(),
       routes: {
         '/about': (context) => const AboutPage(),
         '/contact': (context) => const ContactPage(),
         '/galery': (context) => const GaleryPage(),
+        '/HalamanProduk':(context) => const HalamanProduk(),
       },
     );
   }
@@ -42,7 +129,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Menu Navigasi & Valentino'),
       ),
-      drawer: Drawer(
+      drawer: Drawer(  
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -60,6 +147,7 @@ class HomePage extends StatelessWidget {
             _buildDrawerItem(context, Icons.info, 'About Me', '/about'),
             _buildDrawerItem(context, Icons.phone, 'Contact Me', '/contact'),
             _buildDrawerItem(context, Icons.image, 'Gallery Me', '/galery'),
+            _buildDrawerItem(context, Icons.shopping_cart, 'Produk Me', '/HalamanProduk'),
           ],
         ),
       ),
@@ -193,8 +281,8 @@ class ContactPage extends StatelessWidget {
 
   void _openInstagram() async {
     final Uri url = Uri.parse('https://instagram.com/junhaean');
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, mode: LaunchMode.externalApplication);
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Gagal membuka Instagram');
     }
   }
 

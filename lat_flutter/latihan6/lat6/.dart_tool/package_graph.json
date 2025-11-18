@@ -9,6 +9,7 @@
       "dependencies": [
         "cupertino_icons",
         "flutter",
+        "http",
         "url_launcher"
       ],
       "devDependencies": [
@@ -47,17 +48,13 @@
       "dependencies": []
     },
     {
-      "name": "url_launcher",
-      "version": "6.3.1",
+      "name": "http",
+      "version": "1.6.0",
       "dependencies": [
-        "flutter",
-        "url_launcher_android",
-        "url_launcher_ios",
-        "url_launcher_linux",
-        "url_launcher_macos",
-        "url_launcher_platform_interface",
-        "url_launcher_web",
-        "url_launcher_windows"
+        "async",
+        "http_parser",
+        "meta",
+        "web"
       ]
     },
     {
@@ -162,61 +159,26 @@
       ]
     },
     {
-      "name": "url_launcher_windows",
-      "version": "3.1.4",
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
       "dependencies": [
-        "flutter",
-        "url_launcher_platform_interface"
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
       ]
     },
     {
-      "name": "url_launcher_web",
-      "version": "2.3.3",
+      "name": "async",
+      "version": "2.11.0",
       "dependencies": [
-        "flutter",
-        "flutter_web_plugins",
-        "url_launcher_platform_interface",
-        "web"
-      ]
-    },
-    {
-      "name": "url_launcher_platform_interface",
-      "version": "2.3.2",
-      "dependencies": [
-        "flutter",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "url_launcher_macos",
-      "version": "3.2.2",
-      "dependencies": [
-        "flutter",
-        "url_launcher_platform_interface"
-      ]
-    },
-    {
-      "name": "url_launcher_linux",
-      "version": "3.2.1",
-      "dependencies": [
-        "flutter",
-        "url_launcher_platform_interface"
-      ]
-    },
-    {
-      "name": "url_launcher_ios",
-      "version": "6.3.3",
-      "dependencies": [
-        "flutter",
-        "url_launcher_platform_interface"
-      ]
-    },
-    {
-      "name": "url_launcher_android",
-      "version": "6.3.14",
-      "dependencies": [
-        "flutter",
-        "url_launcher_platform_interface"
+        "collection",
+        "meta"
       ]
     },
     {
@@ -237,20 +199,23 @@
       "dependencies": []
     },
     {
-      "name": "async",
-      "version": "2.11.0",
-      "dependencies": [
-        "collection",
-        "meta"
-      ]
-    },
-    {
       "name": "leak_tracker_testing",
       "version": "3.0.2",
       "dependencies": [
         "leak_tracker",
         "matcher",
         "meta"
+      ]
+    },
+    {
+      "name": "leak_tracker",
+      "version": "11.0.2",
+      "dependencies": [
+        "clock",
+        "collection",
+        "meta",
+        "path",
+        "vm_service"
       ]
     },
     {
@@ -283,15 +248,37 @@
       ]
     },
     {
-      "name": "web",
-      "version": "1.1.1",
+      "name": "typed_data",
+      "version": "1.4.0",
+      "dependencies": [
+        "collection"
+      ]
+    },
+    {
+      "name": "vm_service",
+      "version": "14.2.5",
       "dependencies": []
     },
     {
-      "name": "flutter_web_plugins",
-      "version": "0.0.0",
+      "name": "url_launcher",
+      "version": "6.3.2",
       "dependencies": [
-        "flutter"
+        "flutter",
+        "url_launcher_android",
+        "url_launcher_ios",
+        "url_launcher_linux",
+        "url_launcher_macos",
+        "url_launcher_platform_interface",
+        "url_launcher_web",
+        "url_launcher_windows"
+      ]
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "version": "2.3.2",
+      "dependencies": [
+        "flutter",
+        "plugin_platform_interface"
       ]
     },
     {
@@ -302,20 +289,61 @@
       ]
     },
     {
-      "name": "leak_tracker",
-      "version": "11.0.2",
+      "name": "url_launcher_linux",
+      "version": "3.2.1",
       "dependencies": [
-        "clock",
-        "collection",
-        "meta",
-        "path",
-        "vm_service"
+        "flutter",
+        "url_launcher_platform_interface"
       ]
     },
     {
-      "name": "vm_service",
-      "version": "14.2.5",
-      "dependencies": []
+      "name": "url_launcher_windows",
+      "version": "3.1.4",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_macos",
+      "version": "3.2.4",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_ios",
+      "version": "6.3.5",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_web",
+      "version": "2.4.1",
+      "dependencies": [
+        "flutter",
+        "flutter_web_plugins",
+        "url_launcher_platform_interface",
+        "web"
+      ]
+    },
+    {
+      "name": "flutter_web_plugins",
+      "version": "0.0.0",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "url_launcher_android",
+      "version": "6.3.24",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
     }
   ],
   "configVersion": 1
